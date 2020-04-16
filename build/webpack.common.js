@@ -9,7 +9,7 @@ module.exports = {
   },
   output: {
     filename: 'js/[name].js',
-    path: path.resolve(__dirname, '../jobs_extension')
+    path: path.resolve(__dirname, '../angelext')
   },
   mode: 'development',
   plugins: [
