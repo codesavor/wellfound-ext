@@ -68,24 +68,24 @@ function getCompaniesAndJobs(companies, from = 0) {
   });
 }
 
-let timer = null;
-function startWatching() {
-  if (timer) {
-    clearInterval(timer);
+(function () {
+  let wTimer = null;
+  function startWatching() {
+    if (wTimer) {
+      clearInterval(wTimer);
+    }
+
+    let count = 0;
+
+    wTimer = setInterval(() => {
+      const companies = document.querySelectorAll('div[data-test="StartupResult"]');
+      if (count < companies.length) {
+        getCompaniesAndJobs(companies, count);
+        count = companies.length;
+      }
+    }, 1000);
   }
 
-  let count = 0;
-
-  timer = setInterval(() => {
-    const companies = document.querySelectorAll('div[data-test="StartupResult"]');
-    if (count < companies.length) {
-      getCompaniesAndJobs(companies, count);
-      count = companies.length;
-    }
-  }, 1000);
-}
-
-(function () {
   const savedSearchToggle = document.querySelector('[data-test="SavedSearch-DetachedAlertToggle"]');
   savedSearchToggle.parentElement.children[2].children[0].click();
   setTimeout(() => {
