@@ -1,0 +1,4 @@
+/jobs_extension
+/node_modules
+.DS_Store
+/src/test/__bundle.js

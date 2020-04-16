@@ -1,0 +1,42 @@
+{
+  "name": "upext",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://jacob886@bitbucket.org/jacob886/upext.git",
+  "author": "jacob886 <jvinter88@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "watch": "webpack --config build/webpack.dev.js --watch",
+    "build": "webpack --config build/webpack.prod.js"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.2.3",
+    "babel-loader": "^8.0.4",
+    "clean-webpack-plugin": "^2.0.1",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^2.1.1",
+    "mocha": "^7.1.1",
+    "mock-local-storage": "^1.1.12",
+    "node-sass": "^4.13.1",
+    "sass-loader": "^7.1.0",
+    "vue-loader": "^15.7.0",
+    "vue-style-loader": "^4.1.2",
+    "vue-template-compiler": "^2.6.10",
+    "webpack": "^4.28.2",
+    "webpack-cli": "^3.1.2",
+    "webpack-merge": "^4.2.1"
+  },
+  "dependencies": {
+    "buefy": "^0.8.15",
+    "caniuse-lite": "^1.0.30001021",
+    "classnames": "^2.2.6",
+    "javascript-time-ago": "^2.0.1",
+    "lodash": "^4.17.15",
+    "mocha-loader": "^5.0.0",
+    "socket.io-client": "^2.2.0",
+    "vue": "^2.6.10",
+    "vuex": "^3.1.0",
+    "vuex-persist": "^2.0.0"
+  }
+}

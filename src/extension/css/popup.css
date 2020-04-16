@@ -1,0 +1,241 @@
+body {
+  white-space: nowrap;
+  background: #f2f2f2;
+  font-family: "Gotham SSm", Helvetica, Arial, sans-serif;
+  font-size: 13px;
+  line-height: 1.42857;
+  color: #222;
+  padding: 20px 30px;
+}
+#job__list {
+  box-shadow: 0px 1px 6px rgba(57, 73, 76, 0.35);
+  background: white;
+  overflow-x: hidden;
+  overflow-y: auto;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#job__list-header {
+  padding: 5px 30px;
+  display: flex;
+  justify-content: space-between;
+  background-color: #555;
+  color: white;
+}
+.tabs {
+  display: flex;
+  align-items: center;
+}
+.tab {
+  font-size: 18px;
+  text-align: center;
+  position: relative;
+  cursor: pointer;
+  padding: 0 20px;
+}
+.tab::after {
+  content: " ";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background-color: transparent;
+  position: absolute;
+  bottom: -13px;
+  left: 0;
+}
+.tab.active::after {
+  background-color: #fafafa;
+}
+.actions {
+  display: flex;
+  align-items: center;
+}
+.job__unread {
+  display: block;
+  position: relative;
+  padding-left: 30px;
+  cursor: pointer;
+  font-size: 16px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  margin-right: 10px;
+}
+.job__unread input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+}
+.job__unread:hover input ~ .checkmark {
+  background-color: #eee;
+}
+.job__unread input:checked ~ .checkmark {
+  background-color: #2196f3;
+}
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.job__unread input:checked ~ .checkmark:after {
+  display: block;
+}
+.job__unread .checkmark:after {
+  left: 7px;
+  top: 2px;
+  width: 5px;
+  height: 10px;
+  border: solid white;
+  border-width: 0 3px 3px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.job-wrapper {
+  padding: 20px 30px;
+  color: #222;
+  cursor: pointer;
+  border-bottom: 1px solid #ccc;
+}
+.job-wrapper.read {
+  background: #f0f0f0 !important;
+}
+.job-wrapper:hover {
+  background-color: #f9f9f9;
+}
+.job-link {
+  text-decoration: none;
+}
+.job__title {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 0;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+}
+.job-wrapper:hover .job__title {
+  color: #37a000;
+}
+.job__meta {
+  margin-bottom: 8px;
+  color: #333;
+  font-size: 14px;
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+}
+.job__skill {
+  background-color: #e0e0e0;
+  padding: 4px 8px;
+  margin: 4px 8px 4px 0;
+  border-radius: 4px;
+  display: inline-block;
+}
+.job__payment-icon {
+  color: #14bff4;
+}
+.bold {
+  font-weight: 700;
+}
+.mr4 {
+  margin-right: 4px;
+}
+.mr16 {
+  margin-right: 16px;
+}
+.ml-8 {
+  margin-left: 8px;
+}
+.label {
+  color: #666;
+}
+.button {
+  margin: 4px;
+  color: #37a000;
+  background-color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 400;
+  user-select: none;
+  border: 2px solid transparent;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  vertical-align: middle;
+  white-space: nowrap;
+  background-image: none;
+  transition: all 0.15s;
+  box-shadow: 0 1px 6px rgba(57, 73, 76, 0.35);
+  padding: 0.2rem 0.7rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+}
+.active-button {
+  color: #fff;
+  background-color: #37a000;
+}
+.button:hover {
+  box-shadow: 0 5px 10px rgba(57, 73, 76, 0.35);
+}
+.copy-link {
+  width: 16px;
+  height: 16px;
+  background-image: url(/images/share_gray.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  border-bottom: 1px solid transparent;
+}
+.copy-link:hover {
+  background-image: url(/images/share.png);
+  border-bottom-color: #37a000;
+}
+.green {
+  color: #37a000;
+}
+#popup {
+  padding: 0;
+  margin: 0;
+}
+#popup #job__list {
+  width: 600px;
+  box-shadow: none;
+}
+#popup .job-wrapper {
+  padding: 10px 30px;
+}
+#popup .job__title {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+#popup .job__meta {
+  font-size: 12px;
+  margin-bottom: 2px;
+}
+.badge-plus {
+  color: #fff;
+  background-color: #14bff4;
+  border-color: #14bff4;
+  text-transform: uppercase;
+  font-size: 10px;
+  padding: 3px 6px;
+  border-radius: 3px;
+  font-weight: 700;
+  display: inline;
+  margin-right: 5px;
+}

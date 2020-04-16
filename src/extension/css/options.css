@@ -1,0 +1,118 @@
+.block {
+  border-bottom: 1px solid #aaa;
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+}
+
+.block:last-child {
+  border-bottom: none;
+}
+
+.row {
+  flex-direction: row;
+}
+
+.column {
+  flex-direction: column;
+}
+
+.op-field {
+  display: flex;
+  flex: none;
+}
+
+.operator {
+  flex: 1;
+  margin-right: 8px;
+  display: block;
+}
+
+.field {
+  flex: none;
+  margin-right: 8px;
+  display: block;
+}
+
+.children {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.column > .children {
+  margin-top: 8px;
+}
+
+.children > input {
+  padding: 4px;
+  flex: 1;
+}
+
+.add-block {
+  margin-top: 8px;
+  flex: none;
+  align-self: start;
+}
+
+.delete-block {
+  margin-left: 8px;
+  background: white;
+  border-radius: 4px;
+  color: red;
+  font-weight: bold;
+  cursor: pointer;
+  align-self: center;
+  padding: 3px 6px;
+}
+
+#container > .block > .delete-block {
+  display: none;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+#save {
+  margin-top: 20px;
+  background: green;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 30px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+em {
+  font-weight: bold;
+}
+
+select {
+  width: 120px;
+  margin-top: 4px;
+}
+
+input {
+  font-size: 14px;
+}
+
+input[type="checkbox"] {
+  margin-top: 6px;
+}
+
+#notification_settings {
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+}
+
+#notification_on {
+  font-size: 20px;
+  margin: 0;
+  margin-left: 20px;
+  margin-bottom: 2px;
+}

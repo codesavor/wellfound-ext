@@ -1,0 +1,29 @@
+{
+  "manifest_version": 2,
+  "name": "Angel.co Jobs",
+  "version": "1.0.0",
+  "icons": {
+    "16": "icons/16.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "browser_action": {
+    "default_icon": "icons/128.png",
+    "default_popup": "popup.html",
+    "default_title": "Angel Jobs"
+  },
+  "permissions": [
+    "tabs",
+    "activeTab",
+    "storage",
+    "notifications",
+    "https://angel.co/*"
+  ],
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+  "web_accessible_resources": ["js/scrapper.js"],
+  "externally_connectable": {
+    "matches": ["https://angel.co/*"]
+  }
+}
