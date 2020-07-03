@@ -14,9 +14,10 @@ function getCompaniesAndJobs(companies, from = 0) {
     const c = companies[i];
 
     const avatar = findElementWithClass('img', ['styles_avatar_', 'styles_square_'], c);
-    const nameLink = findElementWithClass('a', ['defaultLink_', 'name_'], c);
+    const nameLink = findElementWithClass('a', ['defaultLink_', 'header_'], c);
+    const companyTitle = findElementWithClass('h2', ['name_'], nameLink);
     const sizeEl = c.querySelector('span.__halo_fontSizeMap_size--2xs.__halo_lineHeight_comfortable.__halo_fontWeight_medium.__halo_color_slate--500');
-    const listingsEl = findElementWithClass('div', ['component_', 'listings_'], c);
+    const listingsEl = c.children[2].children[0];
     const expandBtn = findElementWithClass('button', ['toggleExpand_'], c);
 
     if (expandBtn) {
@@ -38,6 +39,10 @@ function getCompaniesAndJobs(companies, from = 0) {
       const posted = findElementWithClass('span', ['posted_'], listing);
       const idMatch = link.href.match(/\/jobs\/(\d+)-/);
 
+      if (!title || !idMatch || !meta || !posted) {
+        return;
+      }
+
       jobs.push({
         id: idMatch ? idMatch[1] : '',
         link: link.href,
@@ -53,9 +58,9 @@ function getCompaniesAndJobs(companies, from = 0) {
 
     companyList.push({
       id: matches ? matches[1] : avatar.src,
-      name: nameLink.textContent,
+      name: companyTitle.textContent,
       link: nameLink.href,
-      size: sizeEl.textContent,
+      size: sizeEl && sizeEl.textContent,
       logo: avatar.src,
       scrappedAt: ts,
       jobs
@@ -79,8 +84,12 @@ function getCompaniesAndJobs(companies, from = 0) {
 
     wTimer = setInterval(() => {
       const companies = document.querySelectorAll('div[data-test="StartupResult"]');
-      if (count < companies.length) {
-        getCompaniesAndJobs(companies, count);
+      if (count === 0 && 0 < companies.length) {
+        try {
+          getCompaniesAndJobs(companies, count);
+        } catch (err) {
+          console.log(err)
+        }
         count = companies.length;
       }
     }, 1000);
