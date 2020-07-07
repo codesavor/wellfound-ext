@@ -84,7 +84,7 @@ function getCompaniesAndJobs(companies, from = 0) {
 
     wTimer = setInterval(() => {
       const companies = document.querySelectorAll('div[data-test="StartupResult"]');
-      if (count === 0 && 0 < companies.length) {
+      if (companies.length > 0 && count < companies.length) {
         try {
           getCompaniesAndJobs(companies, count);
         } catch (err) {
